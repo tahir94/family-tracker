@@ -1,0 +1,26 @@
+<ion-header>
+
+	<ion-navbar>
+
+		<ion-title>invite-member</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item>
+			<ion-icon class="owner-icon" name="contact"></ion-icon>
+			<span class="owner-name">
+				<b> {{userName}} </b>
+			</span>
+		</ion-item>
+		<ion-item>
+			<div style="text-align:center" class="icon-container">
+				<ion-icon style="font-size:60px !important" (click)="inviteMember()" class="add-icon" name="add-circle"></ion-icon>
+				<span style="bottom:18px !important" class="create-circle">Invite New Members</span>
+			</div>
+		</ion-item>
+	</ion-list>
+	<div #map id="map"></div>
+</ion-content>

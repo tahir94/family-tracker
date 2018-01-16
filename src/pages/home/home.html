@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar hideBackButton="true">
+		<button *ngIf="isMenu" ion-button menuToggle icon-only>
+			<ion-icon name='menu'></ion-icon>
+		</button>
+
+		<span (click)="goBack()" style="position: relative;top: 30px;font-size: 1.5em;z-index: 999;">
+			<ion-icon *ngIf="isBackIcon" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+		</span>
+		<div style="display:flex;text-align:center">
+			<ion-title>
+				Family-Tracker
+			</ion-title>
+			<ion-icon class="create-member" name="person-add"></ion-icon>
+			<button style="float:right" ion-button (click)="signout()">Sign Out</button>
+		</div>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+
+	<div class="icon-container">
+		<ion-icon (click)="createCircle()" class="add-icon" name="add-circle"></ion-icon>
+		<span class="create-circle">Create Circle</span>
+	</div>
+	<ion-list *ngIf="isGroupsList">
+		<ion-item-group>
+			<ion-item-divider color="light">Admin groups</ion-item-divider>
+			<button ion-item (click)="groupSelected(admin)" *ngFor="let admin of adminGroupArray">{{admin.group}}</button>
+
+			<ion-item-divider style="margin-top: 10px;" color="light">Others Groups</ion-item-divider>
+
+			<button ion-item block (click)="othersGroupSelected(others)" *ngFor="let others of othersGroupArray">{{others.group}}</button>
+		</ion-item-group>
+
+	</ion-list>
+
+
+	<div *ngIf="isShowMap" #map id="map"></div>
+
+</ion-content>
